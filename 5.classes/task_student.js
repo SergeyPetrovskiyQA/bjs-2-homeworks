@@ -2,10 +2,9 @@ class Student {
     constructor(name) {
         this.name = name;
         this.marks = {};
-
     }
 
-    addMark(subject, mark) {
+    addMark(mark, subject) {
         if (mark < 2 || mark > 5) {
             return; // Оценка не валидна, ничего не делаем
         }
@@ -16,6 +15,7 @@ class Student {
 
         this.marks[subject].push(mark); // Добавляем оценку в массив по предмету
     }
+
     getAverageBySubject(subject) {
         if (!this.marks.hasOwnProperty(subject)) {
             return 0; // Предмет отсутствует, возвращаем ноль
@@ -27,6 +27,7 @@ class Student {
 
         return average;
     }
+
     getAverage() {
         const subjects = Object.keys(this.marks);
 
@@ -44,5 +45,3 @@ class Student {
         return average;
     }
 }
-
-
